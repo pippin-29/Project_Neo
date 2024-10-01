@@ -12,7 +12,6 @@
 
 int main() {
 	t_program *c = new t_program;
-	*c = t_program{0};
 	init_(c);
 
     // Main game loop
@@ -27,10 +26,16 @@ int main() {
 		else if (c->menuToggle == false)
 		{
 			// Update position in game
-			if (IsKeyDown(KEY_W)) c->camera.position.z -= 0.1f;
-			if (IsKeyDown(KEY_S)) c->camera.position.z += 0.1f;
-			if (IsKeyDown(KEY_A)) c->camera.position.x -= 0.1f;
-			if (IsKeyDown(KEY_D)) c->camera.position.x += 0.1f;
+			if (IsKeyDown(KEY_W)) c->camera.position.z -= 0.2f;
+			if (IsKeyDown(KEY_S)) c->camera.position.z += 0.2f;
+			if (IsKeyDown(KEY_A)) c->camera.position.x -= 0.2f;
+			if (IsKeyDown(KEY_D)) c->camera.position.x += 0.2f;
+
+			Vector2 mouseDelta = GetMouseDelta();
+			c->camera.target.x += mouseDelta.x * 0.01f;
+			c->camera.target.y += mouseDelta.y * -0.01f;
+			if (c->camera.target.y < 0.5f) c->camera.target.y = 0.5f;
+			if (c->camera.target.y > 2.0f) c->camera.target.y = 2.0f;
 			draw_game(c);
 		}
         EndDrawing();
