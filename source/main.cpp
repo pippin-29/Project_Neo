@@ -22,13 +22,15 @@ int main() {
     while (!WindowShouldClose()) {
         // Start drawing
         BeginDrawing();
-        ClearBackground(BLACK);
+        
 		if (c->menuToggle == true)
 		{
+			ClearBackground(BLACK);
 			draw_menu(c);
 		}
 		else if (c->menuToggle == false)
 		{
+			ClearBackground(LIGHTGRAY);
 			draw_game(c);
 		}
         EndDrawing();

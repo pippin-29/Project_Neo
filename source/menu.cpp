@@ -27,6 +27,10 @@ void draw_menu(t_program *c)
 	{
 		DrawRectangleRounded(play, 0.64, 1, PURPLE);
 		DrawText("Project_Neo", play.x + 32, play.y + 32, 42, LIGHTGRAY);
+		if (IsMouseButtonPressed(0))
+		{
+			c->menuToggle = false;
+		}
 	}
 	else
 	{

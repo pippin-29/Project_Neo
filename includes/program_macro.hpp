@@ -1,13 +1,13 @@
 //____________________________________________________________________________________________________________________________//
 //*__________________________________________________________________________________________________________________________*//
 //**________________________________________________________________________________________________________________________**//
-//***     File: /media/danielle/Stuff/Programs/Eternity/includes/eternity_macro.h                                          ***//
-//***     Project: /media/danielle/Stuff/Programs/Eternity                                                                 ***//
-//***     Header Created: Thu Aug 15 2024                                                                                  ***//
-//***     Author: Daniel Haddington [Danielle] at <danielle.sh.md@gmail.com>                                               ***//
-//***     Copyright (c) 2024 Daniel Haddington [Danielle]                                                                  ***//
+//***     File: /media/daniel/Stuff/Linux_Stuff/Project_Neo/includes/program_macro.hpp                                     ***//
+//***     Header Created: Tue Oct 01 2024                                                                                  ***//
+//***     Author: Daniel Haddington at <haddingtondaniel5@gmail.com>                                                       ***//
+//***     Copyright (c) 2024 Daniel Haddington                                                                             ***//
 //**________________________________________________________________________________________________________________________**//
 //*__________________________________________________________________________________________________________________________*//
+
 
 #pragma once
 
