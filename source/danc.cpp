@@ -576,111 +576,6 @@ char	*itomd(long d)
 
 //-----------------------------------------------------------------------------------------------------------------------------
 
-//{ 
-
-int		dc_strncmp(char *s1, char *s2, long n)
-{
-	unsigned char	i;
-
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] == s2[i] && s1[i] != '\0')
-	{
-		if (i < (n - 1))
-			i++;
-		else
-			return (0);
-	}
-	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
-}
-
-// }
-
-//-----------------------------------------------------------------------------------------------------------------------------
-
-// {
-
-int	longlongcheck(char *input)
-{
-	long long number = atoll(input);
-	if (number > 2147483647 || number < -2147483648)
-	{
-		printf("Overflow In LongLongCheck");
-		return (1);
-	}
-	else
-		return (0);
-}
-
-// }
-
-//-----------------------------------------------------------------------------------------------------------------------------
-
-// {
-
-// void	free_1d_SDL_Rect(SDL_Rect **f, unsigned int ilen)
-// {
-// 	unsigned long	i;
-
-// 	i = 0;
-// 	while (i < ilen)
-// 	{
-// 		if (f[i])
-// 			free(f[i]);
-// 		i++;
-// 	}
-// 	if (f)
-// 	 free(f);
-// }
-
-// void	free_1d_SDL_textures_surfaces(SDL_Texture **texture, SDL_Surface **surface, unsigned int ilen)
-// {
-// 	int i;
-
-
-// 	i = 0;
-// 	while (i < ilen)
-// 	{
-// 		if (surface[i])
-// 			SDL_FreeSurface(surface[i]);
-// 		if (texture[i])
-// 			SDL_DestroyTexture(texture[i]);
-// 		i++;
-// 	}
-// 	if (surface)
-// 		free(surface);
-// 	if (texture)
-// 		free(texture);
-// }
-
-// void	free_2d_SDL_Rect(SDL_Rect ***f, unsigned long ilen, unsigned long qlen)
-// {
-// 	unsigned long	i;	
-// 	unsigned long	q;
-
-// 	i = 0;
-// 	while (i < ilen)
-// 	{
-// 		q = 0;
-// 		while (q < qlen)
-// 		{
-// 			if (f[i][q])
-// 				free(f[i][q]);
-// 			q++;
-// 		}
-// 		if (f[i])
-// 			free(f[i]);
-// 		i++;
-// 	}
-// 	if (f)
-// 	 free(f);
-// }
-
-// }
-
-//-----------------------------------------------------------------------------------------------------------------------------
-
 // {
 
 char	*dc_strchr(const char *s, int c)
@@ -693,14 +588,6 @@ char	*dc_strchr(const char *s, int c)
 	}
 	return (0);
 }
-
-// }
-
-//-----------------------------------------------------------------------------------------------------------------------------
-
-// {
-
-
 
 // }
 
