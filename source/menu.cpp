@@ -10,7 +10,7 @@
 
 #include "../includes/program.hpp"
 
-
+// fire is chat-gpts work
 #define MAX_PARTICLES 100
 
 typedef struct Particle {
@@ -61,12 +61,15 @@ void DrawParticles() {
 
 void draw_menu(t_program *c)
 {
+	// chat-gpt
 	float deltaTime = GetFrameTime();
     UpdateParticles(deltaTime);
     BeginMode3D((Camera){(Vector3){0, 5, 10}, (Vector3){0, 0, 0}, (Vector3){0, 1, 0}, 45.0f, 0});
     DrawParticles();
     EndMode3D();
 
+
+	// me
 	Rectangle play;
 	play.height = 128;
 	play.width = 512;

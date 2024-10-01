@@ -13,7 +13,8 @@
 int main() {
     // Initialization
     InitWindow(RES_X, RES_Y, "Project_Neo");
-	
+	InitParticles();
+	// SetTargetFPS(132);
 	t_program *c = new t_program;
 	*c = t_program{0};
 	init_(c);
