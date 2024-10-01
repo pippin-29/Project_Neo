@@ -67,7 +67,4 @@ void				draw_game(t_program *c);
 void				init_(t_program *c);
 
 // MENU_C
-void InitParticles();
 void 				draw_menu(t_program *c);
-void UpdateParticles(float deltaTime);
-void DrawParticles();

@@ -14,6 +14,8 @@
 typedef struct s_program
 {	
 	bool		menuToggle;
+	int			mousex;
+	int			mousey;
 } t_program;
 
 

@@ -14,4 +14,6 @@
 void	init_(t_program *c)
 {
 	c->menuToggle = true;
+	c->mousex = 0;
+	c->mousey = 0;
 }
