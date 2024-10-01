@@ -14,7 +14,7 @@ TARGET := neo
 # Define the compiler and flags
 C_COMPILER := g++
 LDFLAGS := -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-FLAGS := -Wextra -Werror -Wall
+FLAGS := 
 ADDSAN := -fsanitize=address -g
 
 # Define source and object directories
@@ -22,10 +22,10 @@ SRC_DIR := source/
 OBJ_DIR := object/
 
 # Find all .c files in the source directory
-SOURCE := $(wildcard $(SRC_DIR)*.c)
+SOURCE := $(wildcard $(SRC_DIR)*.cpp)
 
 # Convert source files to object files
-OBJECTS := $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SOURCE))
+OBJECTS := $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SOURCE))
 
 # Linking command
 LINK := $(C_COMPILER) $(FLAGS) $(ADDSAN) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
@@ -43,7 +43,7 @@ $(TARGET): $(OBJ_DIR) $(OBJECTS)
 	$(LINK)
 
 # Rule to compile source files into object files
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
 	echo "COMPILING OBJECTS ($@)"
 	$(C_COMPILER) $(FLAGS) $(ADDSAN) -c $< -o $@ $(CFLAGS)
 

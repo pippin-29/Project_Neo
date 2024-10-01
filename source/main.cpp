@@ -8,26 +8,30 @@
 //**________________________________________________________________________________________________________________________**//
 //*__________________________________________________________________________________________________________________________*//
 
-#include "../includes/main.h"
+#include "../includes/program.hpp"
 
 int main() {
     // Initialization
-    InitWindow(800, 600, "My Raylib RPG");
+    InitWindow(800, 600, "Project_Neo");
+	
+	t_program *c = new t_program;
+	*c = t_program{0};
+	init_(c);
 
     // Main game loop
     while (!WindowShouldClose()) {
         // Start drawing
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
 
         // Draw some text
-        DrawText("Welcome to My RPG", 190, 200, 20, LIGHTGRAY);
+        DrawText("Welcome to Project_Neo", 190, 200, 20, LIGHTGRAY);
 
         EndDrawing();
     }
 
     // De-Initialization
     CloseWindow();
-
+	cleanup(c);
     return 0;
 }
