@@ -12,7 +12,7 @@
 
 int main() {
     // Initialization
-    InitWindow(800, 600, "Project_Neo");
+    InitWindow(1280, 768, "Project_Neo");
 	
 	t_program *c = new t_program;
 	*c = t_program{0};
