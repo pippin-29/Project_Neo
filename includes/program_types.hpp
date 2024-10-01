@@ -13,7 +13,7 @@
 
 typedef struct s_program
 {	
-	short		menuToggle;
+	bool		menuToggle;
 } t_program;
 
 

@@ -14,9 +14,6 @@
 // CLEANUP_C
 void				cleanup(t_program *c);
 
-// INIT_C
-void				init_(t_program *c);
-
 // DANC_C
 unsigned long		dc_strlen(const char *c); 						// counts string
 char				*dc_strjoin_e(unsigned long c, ...);			// variable number string joiner
@@ -62,3 +59,12 @@ void				sleepbee(unsigned int time);
 void				dc_print_list_2d(char **list);					// prints a 2d list of characters that have been null terminated
 void				dc_print_list_2d_size(char **list, int ilen);	// prints a 2d list of characters to size
 void				drop_float_tail(char *dropee, int drop_size);	// drops the tail of a float up to drop_size, with no rounding, a precision floor?
+
+// GAME_C
+void				draw_game(t_program *c);
+
+// INIT_C
+void				init_(t_program *c);
+
+// MENU_C
+void 				draw_menu(t_program *c);

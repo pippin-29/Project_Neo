@@ -31,9 +31,6 @@ OBJECTS := $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SOURCE))
 LINK := $(C_COMPILER) $(FLAGS) $(ADDSAN) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
 
 
-test: clean all
-
-
 # Default rule to build the target executable
 all: $(TARGET)
 

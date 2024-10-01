@@ -12,7 +12,7 @@
 
 int main() {
     // Initialization
-    InitWindow(1280, 768, "Project_Neo");
+    InitWindow(RES_X, RES_Y, "Project_Neo");
 	
 	t_program *c = new t_program;
 	*c = t_program{0};
@@ -23,10 +23,14 @@ int main() {
         // Start drawing
         BeginDrawing();
         ClearBackground(BLACK);
-
-        // Draw some text
-        DrawText("Welcome to Project_Neo", 190, 200, 20, LIGHTGRAY);
-
+		if (c->menuToggle == true)
+		{
+			draw_menu(c);
+		}
+		else if (c->menuToggle == false)
+		{
+			draw_game(c);
+		}
         EndDrawing();
     }
 

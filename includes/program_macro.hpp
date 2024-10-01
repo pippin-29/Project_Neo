@@ -14,11 +14,8 @@
 # define MEMORY_ALLOCATION_ERROR 12
 # define ENDSET 33
 
-// GAME_SPECIFIC MACROS
-# define ON			1;
-# define OFF		-1;
-
-
+# define RES_X 1280
+# define RES_Y 768
 
 // MD_SET MACROS
 #define _A		  1
