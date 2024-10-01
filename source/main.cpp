@@ -11,26 +11,26 @@
 #include "../includes/program.hpp"
 
 int main() {
-    // Initialization
-    InitWindow(RES_X, RES_Y, "Project_Neo");
-	SetTargetFPS(60);
 	t_program *c = new t_program;
 	*c = t_program{0};
 	init_(c);
 
     // Main game loop
-    while (!WindowShouldClose()) {
-        // Start drawing
-        BeginDrawing();
-        
+    while (!WindowShouldClose()) 
+	{
+        c->mousex = GetMouseX();
+		c->mousey = GetMouseY();
 		if (c->menuToggle == true)
 		{
-			ClearBackground(BLACK);
 			draw_menu(c);
 		}
 		else if (c->menuToggle == false)
 		{
-			ClearBackground(LIGHTGRAY);
+			// Update position in game
+			if (IsKeyDown(KEY_W)) c->camera.position.z -= 0.1f;
+			if (IsKeyDown(KEY_S)) c->camera.position.z += 0.1f;
+			if (IsKeyDown(KEY_A)) c->camera.position.x -= 0.1f;
+			if (IsKeyDown(KEY_D)) c->camera.position.x += 0.1f;
 			draw_game(c);
 		}
         EndDrawing();

@@ -12,9 +12,8 @@
 
 void draw_menu(t_program *c)
 {
-	c->mousex = GetMouseX();
-	c->mousey = GetMouseY();
-
+	BeginDrawing();
+	ClearBackground(BLACK);
 	// me
 	Rectangle play;
 	play.height = 128;

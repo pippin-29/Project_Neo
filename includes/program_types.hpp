@@ -15,6 +15,7 @@ typedef struct s_program
 	bool		menuToggle;
 	int			mousex;
 	int			mousey;
+	Camera		camera;
 } t_program;
 
 
