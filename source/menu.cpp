@@ -14,7 +14,6 @@ void draw_menu(t_program *c)
 {
 	BeginDrawing();
 	ClearBackground(BLACK);
-	// me
 	Rectangle play;
 	play.height = 128;
 	play.width = 512;
