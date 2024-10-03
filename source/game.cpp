@@ -15,7 +15,7 @@ void draw_game(t_program *c)
 	BeginDrawing();
 	ClearBackground(RAYWHITE);
 	BeginMode3D(c->camera);
-	DrawGrid(1000, 1.0f);
+	DrawGrid(100, 1.0f);
 	EndMode3D();
 
 }

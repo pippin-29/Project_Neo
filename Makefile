@@ -14,7 +14,6 @@ TARGET := neo
 # Define the compiler and flags
 C_COMPILER := g++
 LDFLAGS := -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-FLAGS := 
 ADDSAN := -fsanitize=address -g
 
 # Define source and object directories
