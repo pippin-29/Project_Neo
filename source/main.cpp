@@ -10,6 +10,20 @@
 
 #include "../includes/program.hpp"
 
+
+void update_movement(t_program *c)
+{
+	Vector3 forward = Vector3Subtract(c->camera.target, c->camera.position);
+	forward.y = 0.0f;
+	forward = Vector3Normalize(forward);
+	Vector3 right = { forward.z, 0.0f, -forward.x }; 
+	if (IsKeyDown(KEY_W)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(forward, 0.2f));
+	if (IsKeyDown(KEY_S)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(forward, 0.2f));
+	if (IsKeyDown(KEY_A)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(right, 0.2f));
+	if (IsKeyDown(KEY_D)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(right, 0.2f));
+	c->camera.target = Vector3Add(c->camera.position, forward);
+}
+
 int main() {
 	t_program *c = new t_program;
 	init_(c);
@@ -25,17 +39,7 @@ int main() {
 		}
 		else if (c->menuToggle == false)
 		{
-			// Update position in game
-			if (IsKeyDown(KEY_W)) c->camera.position.z -= 0.2f;
-			if (IsKeyDown(KEY_S)) c->camera.position.z += 0.2f;
-			if (IsKeyDown(KEY_A)) c->camera.position.x -= 0.2f;
-			if (IsKeyDown(KEY_D)) c->camera.position.x += 0.2f;
-
-			Vector2 mouseDelta = GetMouseDelta();
-			c->camera.target.x += mouseDelta.x * 0.01f;
-			c->camera.target.y += mouseDelta.y * -0.01f;
-			if (c->camera.target.y < 0.5f) c->camera.target.y = 0.5f;
-			if (c->camera.target.y > 2.0f) c->camera.target.y = 2.0f;
+			update_movement(c);
 			draw_game(c);
 		}
         EndDrawing();

@@ -68,3 +68,10 @@ void				init_(t_program *c);
 
 // MENU_C
 void 				draw_menu(t_program *c);
+
+// VECTOR_C
+Vector3 			Vector3Scale(Vector3 v, float scale);
+Vector3				Vector3Subtract(Vector3 v1, Vector3 v2);
+Vector3				Vector3Add(Vector3 v1, Vector3 v2);
+float 				Vector3Magnitude(Vector3 v);
+Vector3				Vector3Normalize(Vector3 v1);
