@@ -10,20 +10,6 @@
 
 #include "../includes/program.hpp"
 
-
-void update_movement(t_program *c)
-{
-	Vector3 forward = Vector3Subtract(c->camera.target, c->camera.position);
-	forward.y = 0.0f;
-	forward = Vector3Normalize(forward);
-	Vector3 right = { forward.z, 0.0f, -forward.x }; 
-	if (IsKeyDown(KEY_W)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(forward, 0.2f));
-	if (IsKeyDown(KEY_S)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(forward, 0.2f));
-	if (IsKeyDown(KEY_A)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(right, 0.2f));
-	if (IsKeyDown(KEY_D)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(right, 0.2f));
-	c->camera.target = Vector3Add(c->camera.position, forward);
-}
-
 int main() {
 	t_program *c = new t_program;
 	init_(c);

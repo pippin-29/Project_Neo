@@ -14,8 +14,8 @@
 # define MEMORY_ALLOCATION_ERROR 12
 # define ENDSET 33
 
-# define RES_X 1280
-# define RES_Y 768
+# define RES_X 1920
+# define RES_Y 1080
 
 // MD_SET MACROS
 #define _A		  1
