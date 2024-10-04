@@ -44,11 +44,19 @@ void update_movement(t_program *c)
     // Calculate the right vector for strafing
     Vector3 right = { forward.z, 0.0f, -forward.x };
 
+	static float initialY = 0.0f;
+	if (initialY == 0.0f)
+	{
+		initialY = c->camera.position.y;
+	}
+
     // Keyboard movement controls (WASD)
     if (IsKeyDown(KEY_W)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(forward, 0.2f));
     if (IsKeyDown(KEY_S)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(forward, 0.2f));
     if (IsKeyDown(KEY_A)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(right, 0.2f));
     if (IsKeyDown(KEY_D)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(right, 0.2f));
+
+	c->camera.position.y = initialY;
 
     // Update camera target based on new forward vector (relative to position)
     c->camera.target = Vector3Add(c->camera.position, forward);
