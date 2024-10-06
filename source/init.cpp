@@ -30,5 +30,6 @@ void	init_(t_program *c)
 	c->camera.projection = CAMERA_PERSPECTIVE;
 
 	read_map("map.txt", c);
+	c->collision = false;
 	// HideCursor();
 }

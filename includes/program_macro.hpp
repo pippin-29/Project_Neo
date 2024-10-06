@@ -16,6 +16,7 @@
 
 # define RES_X 1920
 # define RES_Y 1080
+# define CUBE_SIZE 1.0f
 
 // MD_SET MACROS
 #define _A		  1

@@ -49,13 +49,20 @@ void update_movement(t_program *c)
 	{
 		initialY = c->camera.position.y;
 	}
+    // Calculate new potential position
+    Vector3 newPosition = c->camera.position;
 
-    // Keyboard movement controls (WASD)
-    if (IsKeyDown(KEY_W)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(forward, 0.2f));
-    if (IsKeyDown(KEY_S)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(forward, 0.2f));
-    if (IsKeyDown(KEY_A)) c->camera.position = Vector3Add(c->camera.position, Vector3Scale(right, 0.2f));
-    if (IsKeyDown(KEY_D)) c->camera.position = Vector3Subtract(c->camera.position, Vector3Scale(right, 0.2f));
+    if (IsKeyDown(KEY_W)) newPosition = Vector3Add(newPosition, Vector3Scale(forward, 0.2f));
+    if (IsKeyDown(KEY_S)) newPosition = Vector3Subtract(newPosition, Vector3Scale(forward, 0.2f));
+    if (IsKeyDown(KEY_A)) newPosition = Vector3Add(newPosition, Vector3Scale(right, 0.2f));
+    if (IsKeyDown(KEY_D)) newPosition = Vector3Subtract(newPosition, Vector3Scale(right, 0.2f));
 
+    // Check collision for the new position
+    if (!CheckCollisionWithGrid(newPosition, c->grid)) {
+        // Only update position if no collision occurs
+        c->camera.position = newPosition;
+    }
+	
 	c->camera.position.y = initialY;
 
     // Update camera target based on new forward vector (relative to position)
@@ -67,5 +74,24 @@ void update_movement(t_program *c)
 	if (c->mousey >= RES_Y - 128 || c->mousey <= 128) SetMousePosition(c->mousey, RES_Y / 2);
 }
 
+bool CheckCollisionWithGrid(Vector3 playerPos, std::vector<std::string> grid) {
+    // Convert player's position to grid coordinates
+    int gridX = (int)(playerPos.x / CUBE_SIZE);
+    int gridZ = (int)(playerPos.z / CUBE_SIZE);
+
+    // Make sure the coordinates are within the bounds of the grid
+    if (gridX < 0 || gridZ < 0 || gridZ >= grid.size() || gridX >= grid[0].size())
+        return false; // Out of bounds means no collision
+
+    // Check the character in the grid at the player's grid position
+    char cell = grid[gridZ][gridX]; // Note: gridZ is the row (i.e., y-axis in 2D), gridX is the column
+
+    // Define which characters represent solid objects
+    if (cell == '|' || cell == '-' || cell == 'G') {
+        return true; // Collision with wall
+    }
+
+    return false; // No collision
+}
 
 

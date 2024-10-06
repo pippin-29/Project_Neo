@@ -58,8 +58,6 @@ Color GetColorFromChar(char c)
 	}
 }
 
-#define CUBE_SIZE 1.0f
-
 void RenderGridIn3D(std::vector<std::string> grid, t_program *c)
 {
 	int i;
@@ -92,5 +90,3 @@ void RenderGridIn3D(std::vector<std::string> grid, t_program *c)
 	i++;
 	}
 }
-
-

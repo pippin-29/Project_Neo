@@ -25,11 +25,13 @@ Color 						GetColorFromChar(char c);
 std::vector<std::string>	read_map(std::string map, t_program *c);
 void 						RenderGridIn3D(std::vector<std::string> grid, t_program *c);
 
+
 // MENU_C
 void 						draw_menu(t_program *c);
 
 // MOVEMENT_C
 void						update_movement(t_program *c);
+bool 						CheckCollisionWithGrid(Vector3 playerPos, std::vector<std::string> grid);
 
 // VECTOR_C
 Vector3 					Vector3Scale(Vector3 v, float scale);
