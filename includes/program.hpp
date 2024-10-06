@@ -11,14 +11,10 @@
 #pragma once
 
 # include <iostream>
-# include <stdlib.h> 
-# include <stdio.h>
-# include <string.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <unistd.h>
-# include <sys/time.h>
-# include <sys/stat.h>
+# include <fstream>
+# include <string>
+# include <vector>
+# include <fcntl.h>
 # include <math.h>
 # include <raylib.h>
 # include "program_macro.hpp"

@@ -16,6 +16,8 @@ typedef struct s_program
 	int			mousex;
 	int			mousey;
 	Camera3D	camera;
+	std::vector<std::string> grid;
+
 } t_program;
 
 

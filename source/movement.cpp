@@ -62,7 +62,7 @@ void update_movement(t_program *c)
     c->camera.target = Vector3Add(c->camera.position, forward);
 
 
-	// Keep Mouse in window // sorta
+	// Keep Mouse in window
 	if (c->mousex >= RES_X - 128 || c->mousex <= 128) SetMousePosition(RES_X / 2, c->mousey);
 	if (c->mousey >= RES_Y - 128 || c->mousey <= 128) SetMousePosition(c->mousey, RES_Y / 2);
 }

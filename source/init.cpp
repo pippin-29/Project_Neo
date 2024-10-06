@@ -29,6 +29,6 @@ void	init_(t_program *c)
 	c->camera.fovy = 60.0f;
 	c->camera.projection = CAMERA_PERSPECTIVE;
 
-
+	read_map("map.txt", c);
 	// HideCursor();
 }
