@@ -81,7 +81,7 @@ void RenderGridIn3D(std::vector<std::string> grid, t_program *c)
 				int h = 0;
 				while (h < 5)
 				{
-					position = { j * CUBE_SIZE, h * CUBE_SIZE, i * CUBE_SIZE };
+					Vector3 position = { j * CUBE_SIZE, h * CUBE_SIZE, i * CUBE_SIZE };
 					DrawCube(position, CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, color);					
 					h++;
 				}
@@ -89,7 +89,6 @@ void RenderGridIn3D(std::vector<std::string> grid, t_program *c)
             DrawCubeWires(position, CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, BLACK);
 			j++;
 		}
-		std::cout << std::endl;
 	i++;
 	}
 }
