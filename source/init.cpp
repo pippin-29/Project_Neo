@@ -23,8 +23,8 @@ void	init_(t_program *c)
 
 	c->camera = {0};
 
-	c->camera.position = (Vector3){4.0f, 2.0f, 4.0f};
-	c->camera.target = (Vector3){0.0f, 1.8f, 0.0f};
+	c->camera.position = (Vector3){4.0f, 2.5f, 4.0f};
+	c->camera.target = (Vector3){0.0f, 2.3f, 0.0f};
 	c->camera.up = (Vector3){0.0f, 1.0f, 0.0f};
 	c->camera.fovy = 60.0f;
 	c->camera.projection = CAMERA_PERSPECTIVE;

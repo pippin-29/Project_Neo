@@ -84,11 +84,20 @@ bool CheckCollisionWithGrid(Vector3 playerPos, std::vector<std::string> grid) {
         return false; // Out of bounds means no collision
 
     // Check the character in the grid at the player's grid position
-    char cell = grid[gridZ][gridX]; // Note: gridZ is the row (i.e., y-axis in 2D), gridX is the column
+    char cell = grid[gridZ][gridX]; // gridZ is the row, gridX is the column
 
-    // Define which characters represent solid objects
-    if (cell == '|' || cell == '-' || cell == 'G') {
-        return true; // Collision with wall
+    // Check collision for thick walls
+    if (cell == '-') {
+        // Extend the collision check for thicker walls
+        float wallThickness = 1.0f;  // Same thickness as used in rendering
+        float collisionRadius = CUBE_SIZE * wallThickness / 2.0f;
+
+        // Calculate player's bounding box or collision volume
+        Vector3 playerBoxMin = { playerPos.x - collisionRadius, playerPos.y, playerPos.z - collisionRadius };
+        Vector3 playerBoxMax = { playerPos.x + collisionRadius, playerPos.y, playerPos.z + collisionRadius };
+
+        // Check if player's bounding box overlaps with the wall
+        return true; // If it overlaps, return true for collision
     }
 
     return false; // No collision

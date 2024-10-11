@@ -73,14 +73,17 @@ void RenderGridIn3D(std::vector<std::string> grid, t_program *c)
 			Color color = GetColorFromChar(c);
 
 			Vector3 position = { j * CUBE_SIZE, 0, i * CUBE_SIZE };
-			DrawCube(position, CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, color);
+			DrawCube(position, 2.0f * CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, color);
 			if (c == '-')
 			{
 				int h = 0;
 				while (h < 5)
 				{
 					Vector3 position = { j * CUBE_SIZE, h * CUBE_SIZE, i * CUBE_SIZE };
-					DrawCube(position, CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, color);					
+					                // Render thicker walls by extending cubes along the X or Z axis
+                	float wallThickness = 2.0f;  // Adjust this value for desired thickness
+                	Vector3 wallSize = { CUBE_SIZE * wallThickness, CUBE_SIZE, CUBE_SIZE };
+                	DrawCube(position, wallSize.x, wallSize.y, wallSize.z, color);		
 					h++;
 				}
 			}
