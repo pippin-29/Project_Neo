@@ -52,10 +52,10 @@ void update_movement(t_program *c)
     // Calculate new potential position
     Vector3 newPosition = c->camera.position;
 
-    if (IsKeyDown(KEY_W)) newPosition = Vector3Add(newPosition, Vector3Scale(forward, 0.2f));
-    if (IsKeyDown(KEY_S)) newPosition = Vector3Subtract(newPosition, Vector3Scale(forward, 0.2f));
-    if (IsKeyDown(KEY_A)) newPosition = Vector3Add(newPosition, Vector3Scale(right, 0.2f));
-    if (IsKeyDown(KEY_D)) newPosition = Vector3Subtract(newPosition, Vector3Scale(right, 0.2f));
+    if (IsKeyDown(KEY_W)) newPosition = Vector3Add(newPosition, Vector3Scale(forward, 0.15f));
+    if (IsKeyDown(KEY_S)) newPosition = Vector3Subtract(newPosition, Vector3Scale(forward, 0.15f));
+    if (IsKeyDown(KEY_A)) newPosition = Vector3Add(newPosition, Vector3Scale(right, 0.15f));
+    if (IsKeyDown(KEY_D)) newPosition = Vector3Subtract(newPosition, Vector3Scale(right, 0.15f));
 
     // Check collision for the new position
     if (!CheckCollisionWithGrid(newPosition, c->grid)) {
@@ -87,17 +87,8 @@ bool CheckCollisionWithGrid(Vector3 playerPos, std::vector<std::string> grid) {
     char cell = grid[gridZ][gridX]; // gridZ is the row, gridX is the column
 
     // Check collision for thick walls
-    if (cell == '-') {
-        // Extend the collision check for thicker walls
-        float wallThickness = 1.0f;  // Same thickness as used in rendering
-        float collisionRadius = CUBE_SIZE * wallThickness / 2.0f;
-
-        // Calculate player's bounding box or collision volume
-        Vector3 playerBoxMin = { playerPos.x - collisionRadius, playerPos.y, playerPos.z - collisionRadius };
-        Vector3 playerBoxMax = { playerPos.x + collisionRadius, playerPos.y, playerPos.z + collisionRadius };
-
-        // Check if player's bounding box overlaps with the wall
-        return true; // If it overlaps, return true for collision
+	if (cell == '-') {
+        return true;
     }
 
     return false; // No collision
